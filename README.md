@@ -7,7 +7,7 @@
 ## Instructions
 
 > [!Warning]
-> This is a first draft set of instructions. Please analyze the code yourself and make backups of everything before proceeding.
+> This is a first draft set of instructions. Please analyze the code yourself and make backups of your files before proceeding.
 
 1. Clone the repo
 
@@ -51,7 +51,7 @@ ps aux | grep vanity
 
 ## Editing the Script
 
-The script uses gpg unattended key generation with params speciifed in via `keyparams` to generate a primary key, a signing subkey, or an ecnryption subkey.
+The script uses [gpg unattended key generation](https://www.gnupg.org/documentation/manuals/gnupg/Unattended-GPG-key-generation.html) with params speciifed in via `keyparams` to generate a primary key, a signing subkey, or an ecnryption subkey.
 
 ### Primary Key
 
@@ -62,11 +62,9 @@ To generate a primary key pair:
 - Comment out the `SUBKEY_*` variables
 - Remove the `Subkey-*` parameters from the `keyparams` section
   - You can move them below the command then comment out for reuse later
-- Set the parallel jobs to make use of multi-cores since CPU generation is inefficient
-  - Do not exceed or match your cores
-  - I recommend < core count
-- Set the rest of the variables at the top
+- Set the rest of the variables
   - Recommendation: Set you UID variables the same for all keys/subkeys
+- Set `JOBS` to < your CPU core count
 - Run the script
 - Export the secret and public keys via the commands given in the output
 - Delete the `match_file.txt` and `~/vanity_gpg_dir` if you want to run the script again
@@ -80,6 +78,7 @@ To generate a primary key pair:
   - set them to your preferences
 - Make sure the `Subkey-*` params are back in the `keyparams` section
 - Set all your variables
+- Set `JOBS` to < your CPU core count
 - Run the script
 - Export the secret and public key via the commands given in the output
 - Delete the `match_file.txt` and `~/vanity_gpg_dir` if you want to run the script again
@@ -90,10 +89,13 @@ To generate a primary key pair:
 - Set your vanity string regex
   - only `0-9` and `A-F`
 - Uncomment all `SUBKEY_*` variables
-  - set them to your preferences
-  - set `SUBKEY_USAGE=encrypt`
+  - set:
+    - `SUBKEY_TYPE=ECC`
+    - `SUBKEY_CURVE=cv25519`
+    - `SUBKEY_USAGE=encrypt`
 - Make sure the `Subkey-*` params are back in the `keyparams` section
 - Set all your variables
+- Set `JOBS` to < your CPU core count
 - Run the script
 - Export the SECRET SUBKEY with the option:
   - `--export-secret-subkey`

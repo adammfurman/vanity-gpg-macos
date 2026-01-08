@@ -9,7 +9,7 @@ set -euo pipefail
 # Customize these:
 
 # Set to ON to match against encryption subkey fpr [ON|OFF]
-ENCRYPT_KEY="ON"
+ENCRYPT_KEY="OFF"
 
 # Regex pattern for fingerprint (uppercase hex, e.g., "^0000.{32}0000$" for starting and ending in 0000
 PATTERN="^00.{36}00$"
@@ -17,15 +17,15 @@ KEY_TYPE=default
 KEY_CURVE=ed25519
 KEY_USAGE="cert"
 SUBKEY_TYPE=ECC          
-SUBKEY_CURVE=cv25519
-SUBKEY_USAGE=encrypt
+SUBKEY_CURVE=ed25519
+SUBKEY_USAGE=sign
 NAME="First Last"
 EMAIL="email@example.org"
 PASSPHRASE="password"
 EXPIRE="0"
 
 # Parallel processes (adjust to < your CPU cores)
-JOBS=8
+JOBS=4
 
 
 # ---- GPG Params --------------------
@@ -110,4 +110,4 @@ fi
 # ---- Info --------------------
 # To kill all processes: pkill -f ./vanity_gpg_subkey.sh
 # To search for processes: ps aux | grep vanity
-# To run script multiple times, delete match_file.txt and, optionally, ~/vanity_gpg_dir
+# To run script multiple times, delete match_file.txt and ~/vanity_gpg_dir
