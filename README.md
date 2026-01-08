@@ -15,13 +15,13 @@
 git clone git@github.com:adammfurman/vanity-gpg-macos.git
 ```
 
-1. Make script executable
+2. Make script executable
 
 ```bash
 chmod +x vanity_gpg.sh
 ```
 
-1. Edit the script to generate either a:
+3. Edit the script to generate either a:
    - primary key [cert|cert sign]
    - signing subkey [cert|cert sign]
    - encryption subkey [encrypt]
@@ -29,7 +29,7 @@ chmod +x vanity_gpg.sh
 ```bash
 code vanity_gpg.sh
 ```
-1. Open a second terminal session to be able to manually kill the processes
+4. Open a second terminal session to be able to manually kill the processes
 
 Kill processes with:
 
@@ -43,7 +43,8 @@ To search for processes:
 ps aux | grep vanity
 ```
 
-1. Run script
+5. Run script
+
 ```bash
 ./vanity_gpg.sh
 ```
