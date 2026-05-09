@@ -51,7 +51,7 @@ ps aux | grep vanity
 
 ## Editing the Script
 
-The script uses [gpg unattended key generation](https://www.gnupg.org/documentation/manuals/gnupg/Unattended-GPG-key-generation.html) with params speciifed in via `keyparams` to generate a primary key, a signing subkey, or an ecnryption subkey.
+The script uses [gpg unattended key generation](https://www.gnupg.org/documentation/manuals/gnupg/Unattended-GPG-key-generation.html) with params specified in `keyparams` to generate a primary key, a signing subkey, or an encryption subkey.
 
 ### Primary Key
 
